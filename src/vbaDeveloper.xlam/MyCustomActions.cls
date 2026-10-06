@@ -45,3 +45,30 @@ Function IsWorkBookOpen(wkbName As String) As Boolean
 End Function
 
 
+
+
+
+' Class ConsoleLogger
+Implements Logger
+Implements LoggerPrototype
+' We are required to implement both interfaces, even if LoggerPrototype also implements Logger.
+
+' This logger appends to the 'immediate window' in the Excel VBA IDE.
+
+
+Private name As String ' The name of this logger
+
+
+Private Function Logger_whereIsMyLog() As String
+    Logger_whereIsMyLog = "Log output is printed to the immediate window."
+End Function
+
+
+Private Sub Logger_info(message As String, Optional msg2 As String, Optional msg3 As String)
+    logMessage LogFactory.info, message, msg2, msg3
+End Sub
+
+
+Private Sub Logger_warn(message As String, Optional msg2 As String, Optional msg3 As String)
+    logMessage LogFactory.warn, message, msg2, msg3
+End Sub

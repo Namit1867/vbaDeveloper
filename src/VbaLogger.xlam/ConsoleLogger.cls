@@ -28,34 +28,3 @@ End Function
 Private Sub Logger_info(message As String, Optional msg2 As String, Optional msg3 As String)
     logMessage LogFactory.info, message, msg2, msg3
 End Sub
-
-
-Private Sub Logger_warn(message As String, Optional msg2 As String, Optional msg3 As String)
-    logMessage LogFactory.warn, message, msg2, msg3
-End Sub
-
-
-Private Sub Logger_fatal(message As String, Optional msg2 As String, Optional msg3 As String)
-    logMessage LogFactory.fatal, message, msg2, msg3
-End Sub
-
-
-Public Sub LoggerPrototype_setName(loggerName As String)
-    name = loggerName
-End Sub
-
-
-Private Function LoggerPrototype_clone() As LoggerPrototype
-    Dim clone As ConsoleLogger
-    Set clone = New ConsoleLogger
-    ' the clone's name will be overwritten, so no need to: clone.LoggerPrototype_setName name
-    Set LoggerPrototype_clone = clone
-End Function
-
-
-' The actual implementation of the 'info' , 'warn' and 'fatal' subs.
-Private Sub logMessage(status As String, message As String, Optional msg2 As String, Optional msg3 As String)
-    Dim formatted As String
-    formatted = LogFactory.formatLogMessage(status & "|" & name, message, msg2, msg3)
-    Debug.Print formatted
-End Sub

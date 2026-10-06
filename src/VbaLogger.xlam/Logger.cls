@@ -19,13 +19,3 @@ End Function
 ' Log the given messages at INFO level
 Public Sub info(message As String, Optional msg2 As String, Optional msg3 As String)
 End Sub
-
-
-' Log the given messages at WARN level
-Public Sub warn(message As String, Optional msg2 As String, Optional msg3 As String)
-End Sub
-
-
-' Log the given messages at FATAL level
-Public Sub fatal(message As String, Optional msg2 As String, Optional msg3 As String)
-End Sub
