@@ -28,3 +28,6 @@ End Function
 Private Sub Logger_info(message As String, Optional msg2 As String, Optional msg3 As String)
     logMessage LogFactory.info, message, msg2, msg3
 End Sub
+
+
+
